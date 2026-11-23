@@ -1,0 +1,40 @@
+ORGANIZA MERCADO — PHP + MySQL (XAMPP)
+
+INSTALAÇÃO
+1. Extraia a pasta "supermercado_rosa" dentro de C:\xampp\htdocs\
+   O caminho final deve ser C:\xampp\htdocs\supermercado_rosa\
+2. Abra o XAMPP Control Panel e clique em Start para Apache e MySQL.
+3. Acesse http://localhost/supermercado_rosa/
+
+IMPORTANTE: NÃO PRECISA CRIAR O BANCO MANUALMENTE.
+No primeiro acesso, config/database.php:
+- conecta ao servidor MySQL;
+- cria automaticamente o banco supermercado_app, se não existir;
+- cria as tabelas categorias e produtos;
+- insere categorias iniciais, sem duplicá-las.
+
+CONFIGURAÇÃO PADRÃO
+O projeto usa:
+- Host: 127.0.0.1
+- Banco: supermercado_app
+- Usuário: root
+- Senha: vazia
+
+Se você configurou uma senha no MySQL, abra config/database.php e altere:
+$pass = '';
+
+FUNCIONALIDADES
+- Produtos: cadastrar, listar/consultar, filtrar, editar e excluir.
+- Categorias: cadastrar, listar, editar e excluir.
+- Não permite excluir categoria que ainda tenha produtos vinculados.
+- Dados persistidos no MySQL com PDO e consultas preparadas.
+- Validação básica, escape de saída e token CSRF nos formulários.
+
+SE AINDA APARECER ERRO
+- Confira se MySQL está com status "Running" no XAMPP.
+- Confira se a porta configurada no MySQL é a padrão 3306.
+- Se sua instalação usa outra porta, ajuste o DSN em config/database.php.
+- Se o MySQL usa senha, preencha $pass.
+- O usuário MySQL precisa ter permissão para criar banco e tabelas (no XAMPP padrão, root normalmente tem).
+
+O sistema é administrativo: organiza produtos e categorias. Não é uma loja virtual e não realiza vendas ou pagamentos.
